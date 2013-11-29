@@ -19,8 +19,10 @@ if (string.lower() == 'y'):
   print "For each thing you want to do, type it in, then hit 'Enter' if you want to add more items."
   print "When you're done listing, hit 'Enter' twice in a row to move on to the check-off phase."
   print "For the check-off phase, the program will ask: 'What have you just finished?'"  
-  print "List all the items in the list that you have finished (case-insensitive)." 
-  print "Hit 'Enter' twice in a row when you're done, just like how you added the items onto the list in the first place."
+  print "Type in whatever you have finished (case-insensitive)." 
+  print "The program will then ask if there's anything else you'd like to do."
+  print "This is just like the beginning; list new stuff, then hit 'Enter' twice in a row to continue."
+  print "The program will repeat with asking what you've finished and what else you'd like to do until you've finished everything."
   print "Have fun!";
 
 """
@@ -49,6 +51,10 @@ while(len(undone) > 0):
          break;
       except:
          print "Invalid input.  Must be something that's currently in the to-do list.  Try again.";
+   string = raw_input("Oh...is there anything else you'd like to do today? ");
+   while (len(string) > 0):
+      undone.append(string);
+      string = raw_input();
    print "Here's what you've completed so far:";
    print_list(done);
 
